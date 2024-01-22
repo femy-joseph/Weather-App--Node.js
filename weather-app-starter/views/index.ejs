@@ -10,16 +10,22 @@
   </head>
   <body>
     <div class="container">
-      <h1>Weather App using NodeJS</h1>
+      <h1>Weather App  </h1>
+      <h5>by Femy</h5>
       <form action="/weather" method="get">
         <input type="text" name="city" placeholder="Enter city name" />
         <button type="submit">Get Weather</button>
-      </form>
-      ` <% if (error) { %>
-      <p class="error"><%= error %></p>
+      </form>`
+      <% if (errorm) { %>
+      <p class="error"><%= errorm %></p>
       <% } else if (weather) { %>
       <div class="card">
         <!-- Add your weather data here -->
+        <% let temperatureCelsius = (weather.main.temp - 32) * 5/9; %>
+        <p>
+          <i class="fas fa-thermometer-half"></i>
+          <%=temperatureCelsius.toFixed(2)%>&deg;C
+        </p>
         <p>
           <i class="fas fa-thermometer-half"></i>
           <%=weather.main.temp%>&deg;F
